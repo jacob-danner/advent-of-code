@@ -18,7 +18,6 @@ string_digit_map = {
 def get_calibration_value(line: str) -> int:
     # find 'string digits' or digit characters
     raw_digit_capture = r"one|two|three|four|five|six|seven|eight|nine|\d"
-
     raw_digits = re.findall(raw_digit_capture, line)
 
     def parse_digit(raw_digit: str) -> int:
@@ -47,7 +46,7 @@ def get_calibration_value(line: str) -> int:
     return calibration_value
 
 
-def get_sum_calibration_values(lines: list[str]):
+def get_sum_calibration_values(lines: list[str]) -> int:
     sum_calibration_values = 0
 
     for line in lines:
