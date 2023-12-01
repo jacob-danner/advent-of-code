@@ -16,9 +16,12 @@ string_digit_map = {
 
 
 def get_calibration_value(line: str) -> int:
-    # find 'string digits' or digit characters
-    raw_digit_capture = r"one|two|three|four|five|six|seven|eight|nine|\d"
-    raw_digits = re.findall(raw_digit_capture, line)
+    # find 'string digits' or digit characters.
+    # find string digits using positive lookahead. for cases such as 'nineight'
+
+    raw_digit_regex = r"(?=(one|two|three|four|five|six|seven|eight|nine|\d))"
+
+    raw_digits = re.findall(raw_digit_regex, line)
 
     def parse_digit(raw_digit: str) -> int:
         def is_string(raw_digit: str) -> bool:
