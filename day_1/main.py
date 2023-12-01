@@ -17,7 +17,7 @@ string_digit_map = {
 
 def get_calibration_value(line: str) -> int:
     # find 'string digits' or digit characters
-    raw_digit_capture = r"(?:one|two|three|four|five|six|seven|eight|nine)|\d"
+    raw_digit_capture = r"one|two|three|four|five|six|seven|eight|nine|\d"
 
     raw_digits = re.findall(raw_digit_capture, line)
 
